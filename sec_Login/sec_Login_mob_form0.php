@@ -460,10 +460,12 @@ if ('' != $this->Ini->Msg_ico_title) {
 <span id="id_message_display_title" style="vertical-align: middle"></span></td>
   </tr>
   <tr>
-   <td class="scFormMessageMessage"><?php
+   <td class="scFormMessageMessage">
+ <?php
 if ('' != $this->Ini->Msg_ico_body) {
 ?>
-<img id="id_message_display_body_icon" src="<?php echo $this->Ini->path_icones . '/' . $this->Ini->Msg_ico_body; ?>" style="border-width: 0px; vertical-align: middle">&nbsp;<?php
+<img id="id_message_display_body_icon" src="<?php echo $this->Ini->path_icones . '/' . $this->Ini->Msg_ico_body; ?>" style="border-width: 0px; vertical-align: middle">&nbsp;
+<?php
 }
 ?>
 <span id="id_message_display_text"></span><div id="id_message_display_buttond" style="display: none; text-align: center"><br /><input id="id_message_display_buttone" type="button" class="scButton_default" value="Ok" onClick="_scAjaxMessageBtnClick()" ></div></td>
@@ -476,7 +478,7 @@ var scMsgDefButton = "Ok";
 var scMsgDefClick = "close";
 var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 </script>
-<table id="main_table_form"  align="center" cellpadding=0 cellspacing=0  width="380">
+<table id="login_form main_table_form">
  <tr>
   <td>
   <div class="scFormBorder">
@@ -574,7 +576,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
  size=10 maxlength=32 alt="{datatype: 'text', maxLength: 32, allowedChars: '<?php echo $this->allowedCharsCharset("") ?>', lettersCase: '', enterTab: false, enterSubmit: false, autoTab: false, selectOnFocus: true, watermark: '', watermarkClass: 'scFormObjectOddWm', maskChars: '(){}[].,;:-+/ '}"></span><?php } ?>
  </TD>
    <?php }?>
-
+
+
 
 
 
@@ -582,7 +585,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php if ($sc_hidden_yes > 0 && $sc_hidden_no > 0) { ?>
 
 
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+
 
 
 
@@ -632,7 +636,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
  size=10 maxlength=32 alt="{datatype: 'text', maxLength: 32, allowedChars: '<?php echo $this->allowedCharsCharset("") ?>', lettersCase: '', enterTab: false, enterSubmit: false, autoTab: false, selectOnFocus: true, watermark: '', watermarkClass: 'scFormObjectOddWm', maskChars: '(){}[].,;:-+/ '}"></span><?php } ?>
  </TD>
    <?php }?>
-
+
+
 
 
 
@@ -640,7 +645,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php if ($sc_hidden_yes > 0 && $sc_hidden_no > 0) { ?>
 
 
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+
 
 
 
@@ -694,7 +700,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php  } ?>
  </TD>
    <?php }?>
-
+
+
 
 
 
@@ -702,7 +709,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php if ($sc_hidden_yes > 0) { ?>
 
 
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+
 
 
 

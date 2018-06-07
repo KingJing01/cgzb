@@ -362,7 +362,6 @@ if (!$this->NM_ajax_flag && isset($this->NM_non_ajax_info['ajaxJavascript']) && 
 </script>
 </HEAD>
 <?php
-$str_iframe_body = 'margin-top: 260px;';
  if (isset($_SESSION['nm_aba_bg_color']))
  {
      $this->Ini->cor_bg_grid = $_SESSION['nm_aba_bg_color'];
@@ -383,7 +382,7 @@ else
     $opcao_botoes = $_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['recarga'];
 }
 ?>
-<body class="scFormPage" style="<?php echo $str_iframe_body; ?>">
+<body class="login_scFormPage">
 <?php
 
 if (!isset($this->NM_ajax_info['param']['buffer_output']) || !$this->NM_ajax_info['param']['buffer_output'])
@@ -484,7 +483,7 @@ var scMsgDefButton = "Ok";
 var scMsgDefClick = "close";
 var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 </script>
-<table id="main_table_form"  align="center" cellpadding=0 cellspacing=0  width="380">
+<table id="login_form">
  <tr>
   <td>
   <div class="scFormBorder">
@@ -501,16 +500,16 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 #lin2_col2 { font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:right; color: #FFFFFF;  }
 
 </style>
-
+<!--
 <table width="100%" height="67px" class="scFormHeader">
         <tr>
                 <td width="5px"></td>
-        <td width="67px" class="scFormHeaderFont"><IMG SRC="<?php echo $this->Ini->path_imag_cab ?>/scriptcase__NM__scriptcase5_logo_simple.png" BORDER="0"/></td>
-               <td class="scFormHeaderFont"><span id="lin1_col1"><?php if ($this->nmgp_opcao == "novo") { echo ""; } else { echo "" . $_SESSION['SYS_NAME'] . ""; } ?></span><br /><span id="lin2_col1"></span></td>
+        <td width="67px" class="scFormHeaderFont"><IMG SRC="<?php /*echo $this->Ini->path_imag_cab */?>/scriptcase__NM__scriptcase5_logo_simple.png" BORDER="0"/></td>
+               <td class="scFormHeaderFont"><span id="lin1_col1"><?php /*if ($this->nmgp_opcao == "novo") { echo ""; } else { echo "" . $_SESSION['SYS_NAME'] . ""; } */?></span><br /><span id="lin2_col1"></span></td>
                <td align="right" class="scFormHeaderFont"><span  id="lin1_col2"></span><br /><span id="lin2_col2"></span></td>
         <td width="5px"></td>
     </tr>
-</table>
+</table>-->
 </td></tr>
 <?php
   }
@@ -583,11 +582,13 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
  size=10 maxlength=32 alt="{datatype: 'text', maxLength: 32, allowedChars: '<?php echo $this->allowedCharsCharset("") ?>', lettersCase: '', enterTab: false, enterSubmit: false, autoTab: false, selectOnFocus: true, watermark: '', watermarkClass: 'scFormObjectOddWm', maskChars: '(){}[].,;:-+/ '}"></span><?php } ?>
 </TD>
    <?php }?>
-
+
+
 <?php if ($sc_hidden_yes > 0 && $sc_hidden_no > 0) { ?>
 
 
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 2; ?>" >&nbsp;</TD>
+    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 2; ?>" >&nbsp;</TD>
+
 <?php } 
 ?> 
 <?php if ($sc_hidden_no > 0) { echo "<tr>"; }; 
@@ -634,11 +635,13 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
  size=10 maxlength=32 alt="{datatype: 'text', maxLength: 32, allowedChars: '<?php echo $this->allowedCharsCharset("") ?>', lettersCase: '', enterTab: false, enterSubmit: false, autoTab: false, selectOnFocus: true, watermark: '', watermarkClass: 'scFormObjectOddWm', maskChars: '(){}[].,;:-+/ '}"></span><?php } ?>
 </TD>
    <?php }?>
-
+
+
 <?php if ($sc_hidden_yes > 0 && $sc_hidden_no > 0) { ?>
 
 
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 2; ?>" >&nbsp;</TD>
+    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 2; ?>" >&nbsp;</TD>
+
 <?php } 
 ?> 
 
@@ -682,7 +685,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php  } ?>
  </TD>
    <?php }?>
-
+
+
 
 
 
@@ -690,7 +694,8 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php if ($sc_hidden_yes > 0) { ?>
 
 
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+
 
 
 

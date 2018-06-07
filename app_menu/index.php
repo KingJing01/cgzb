@@ -1777,7 +1777,8 @@ if (is_file($path_apls . $this->tab_grupo[0] . SC_dir_app_name("sec_Login") . "/
             display: inline-block !important;
             overflow: hidden !important;
             white-space: nowrap !important;
-   }</style>
+   }
+</style>
 <script>
 var is_menu_vertical = false;
 </script>
@@ -4615,7 +4616,7 @@ $nm_data_fixa = date($Str);
 <table width="100%" height="67px" class="scMenuTHeader">
         <tr>
                 <td width="5px"></td>
-        <td width="67px" class="scMenuTHeaderFont">   <IMG SRC="<?php echo $path_imag_cab ?>/scriptcase__NM__img__NM__scriptcase5_logo_simple.png" BORDER="0"/></td>
+        <td width="67px" class="scMenuTHeaderFont">   <IMG SRC="<?php echo $path_imag_cab ?>/script_xy_logo.png" BORDER="0" width="80%" height="50%"/></td>
                <td class="scMenuTHeaderFont"><span id="lin1_col1"><?php echo "" . $_SESSION['SYS_NAME'] . " " ?></span><br /><span id="lin2_col1"></span></td>
                <td align="right" class="scMenuTHeaderFont"><span  id="lin1_col2"><?php echo "" . $_SESSION['usr_gsmc'] . "  " . $_SESSION['usr_name'] . "，您已登录" ?></span><br /><span id="lin2_col2">
 <?php
@@ -4945,12 +4946,16 @@ function app_menu_escreveMenu($arr_menu)
         $_SESSION['scriptcase']['app_menu']['sc_init'][$apl_menu] = 1;
         return  1;
    }
-function sc_logged($user, $ip = '')
+function sc_logged($user, $ip = '')
+
 	{
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
-               
-		$str_sql = "SELECT sec_logged.date_login, sec_logged.ip FROM sec_logged WHERE sec_logged.login = '". $user ."' AND sec_logged.sc_session <> '_SC_FAIL_SC_'";
-
+               
+
+		$str_sql = "SELECT sec_logged.date_login, sec_logged.ip FROM sec_logged WHERE sec_logged.login = '". $user ."' AND sec_logged.sc_session <> '_SC_FAIL_SC_'";
+
+
+
 		 
       $nm_select = $str_sql; 
       $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select; 
@@ -4962,39 +4967,56 @@ $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
           $this->data = false;
           $this->data_erro = $this->Db->ErrorMsg();
       } 
-;
-
-		if($this->data  === FALSE || !isset($this->data->fields[0]))
-		{
-            $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
-		$this->sc_logged_in($user, $ip);
-			return true;
-		}
-		else
-		{
+;
+
+
+
+		if($this->data  === FALSE || !isset($this->data->fields[0]))
+
+		{
+
+            $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
+
+		$this->sc_logged_in($user, $ip);
+
+			return true;
+
+		}
+
+		else
+
+		{
+
             if (isset($_SESSION['scriptcase']['sc_apl_conf']['sec_logged']))
 {
 unset($_SESSION['scriptcase']['sc_apl_conf']['sec_logged']);
 }
-;
-            $_SESSION['scriptcase']['sc_apl_seg']['sec_logged'] = "on";;
+;
+
+            $_SESSION['scriptcase']['sc_apl_seg']['sec_logged'] = "on";;
+
 			 if (!isset($this->Campos_Mens_erro) || empty($this->Campos_Mens_erro))
  {
 $this->nmgp_redireciona_form($_SESSION['scriptcase']['sc_apl_menu_link'] . $this->tab_grupo[0] . "" . SC_dir_app_name('sec_logged') . "/", "app_menu_form_php.php", "user?#?" . $user . "?@?","_self", 440, 630);
- };
-			return false;
+ };
+
+			return false;
+
 		}
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'off';
 }
-function sc_verify_logged()
+function sc_verify_logged()
+
 	{
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
 if (!isset($_SESSION['logged_date_login'])) {$_SESSION['logged_date_login'] = "";}
 if (!isset($this->sc_temp_logged_date_login)) {$this->sc_temp_logged_date_login = (isset($_SESSION['logged_date_login'])) ? $_SESSION['logged_date_login'] : "";}
 if (!isset($_SESSION['logged_user'])) {$_SESSION['logged_user'] = "";}
 if (!isset($this->sc_temp_logged_user)) {$this->sc_temp_logged_user = (isset($_SESSION['logged_user'])) ? $_SESSION['logged_user'] : "";}
-               
-		$str_sql = "SELECT count(*) FROM sec_logged WHERE sec_logged.login = '". $this->sc_temp_logged_user . "' AND sec_logged.date_login = '". $this->sc_temp_logged_date_login ."' AND sec_logged.sc_session <> '_SC_FAIL_SC_'";
+               
+
+		$str_sql = "SELECT count(*) FROM sec_logged WHERE sec_logged.login = '". $this->sc_temp_logged_user . "' AND sec_logged.date_login = '". $this->sc_temp_logged_date_login ."' AND sec_logged.sc_session <> '_SC_FAIL_SC_'";
+
 		 
       $nm_select = $str_sql; 
       $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select; 
@@ -5020,33 +5042,44 @@ if (!isset($this->sc_temp_logged_user)) {$this->sc_temp_logged_user = (isset($_S
           $this->rs_logged = false;
           $this->rs_logged_erro = $this->Db->ErrorMsg();
       } 
-;
-		if($this->rs_logged[0][0] != 1)
-		{
+;
+
+		if($this->rs_logged[0][0] != 1)
+
+		{
+
 			 if (isset($this->sc_temp_logged_user)) {$_SESSION['logged_user'] = $this->sc_temp_logged_user;}
  if (isset($this->sc_temp_logged_date_login)) {$_SESSION['logged_date_login'] = $this->sc_temp_logged_date_login;}
  if (!isset($this->Campos_Mens_erro) || empty($this->Campos_Mens_erro))
  {
 $this->nmgp_redireciona_form($_SESSION['scriptcase']['sc_apl_menu_link'] . $this->tab_grupo[0] . "" . SC_dir_app_name('sec_Login') . "/", "app_menu_form_php.php", "","_parent", 440, 630);
- };
+ };
+
 		}
 if (isset($this->sc_temp_logged_user)) {$_SESSION['logged_user'] = $this->sc_temp_logged_user;}
 if (isset($this->sc_temp_logged_date_login)) {$_SESSION['logged_date_login'] = $this->sc_temp_logged_date_login;}
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'off';
 }
-function sc_logged_in($user, $ip = '')
+function sc_logged_in($user, $ip = '')
+
 	{
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
 if (!isset($_SESSION['logged_date_login'])) {$_SESSION['logged_date_login'] = "";}
 if (!isset($this->sc_temp_logged_date_login)) {$this->sc_temp_logged_date_login = (isset($_SESSION['logged_date_login'])) ? $_SESSION['logged_date_login'] : "";}
 if (!isset($_SESSION['logged_user'])) {$_SESSION['logged_user'] = "";}
 if (!isset($this->sc_temp_logged_user)) {$this->sc_temp_logged_user = (isset($_SESSION['logged_user'])) ? $_SESSION['logged_user'] : "";}
-               
-        $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
-		$this->sc_temp_logged_user = $user;
-		$this->sc_temp_logged_date_login = microtime(true);
-
-        $str_sql = "DELETE FROM sec_logged WHERE sec_logged.login = '". $user . "' AND sec_logged.sc_session = '_SC_FAIL_SC_' AND sec_logged.ip = '".$ip."'";
+               
+
+        $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
+
+		$this->sc_temp_logged_user = $user;
+
+		$this->sc_temp_logged_date_login = microtime(true);
+
+
+
+        $str_sql = "DELETE FROM sec_logged WHERE sec_logged.login = '". $user . "' AND sec_logged.sc_session = '_SC_FAIL_SC_' AND sec_logged.ip = '".$ip."'";
+
         
      $nm_select = $str_sql; 
          $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select;
@@ -5065,9 +5098,12 @@ if (!isset($this->sc_temp_logged_user)) {$this->sc_temp_logged_user = (isset($_S
              exit;
          }
          $rf->Close();
-      ;
-
-    	$str_sql = "INSERT INTO sec_logged(sec_logged.login, sec_logged.date_login, sec_logged.sc_session, sec_logged.ip) VALUES ('". $user ."', '". $this->sc_temp_logged_date_login ."', '". session_id() ."', '". $ip ."')";
+      ;
+
+
+
+    	$str_sql = "INSERT INTO sec_logged(sec_logged.login, sec_logged.date_login, sec_logged.sc_session, sec_logged.ip) VALUES ('". $user ."', '". $this->sc_temp_logged_date_login ."', '". session_id() ."', '". $ip ."')";
+
 	    
      $nm_select = $str_sql; 
          $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select;
@@ -5091,12 +5127,16 @@ if (isset($this->sc_temp_logged_user)) {$_SESSION['logged_user'] = $this->sc_tem
 if (isset($this->sc_temp_logged_date_login)) {$_SESSION['logged_date_login'] = $this->sc_temp_logged_date_login;}
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'off';
 }
-function sc_logged_in_fail($user, $ip = '')
+function sc_logged_in_fail($user, $ip = '')
+
     {
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
-               
-        $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
-        $str_sql = "INSERT INTO sec_logged(sec_logged.login, sec_logged.date_login, sec_logged.sc_session, sec_logged.ip) VALUES ('" . $user . "', '" . microtime(true) . "', '_SC_FAIL_SC_', '" . $ip . "')";
+               
+
+        $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
+
+        $str_sql = "INSERT INTO sec_logged(sec_logged.login, sec_logged.date_login, sec_logged.sc_session, sec_logged.ip) VALUES ('" . $user . "', '" . microtime(true) . "', '_SC_FAIL_SC_', '" . $ip . "')";
+
         
      $nm_select = $str_sql; 
          $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select;
@@ -5115,17 +5155,23 @@ $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
              exit;
          }
          $rf->Close();
-      ;
+      ;
+
         return true;
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'off';
 }
-function sc_logged_is_blocked($ip = '')
+function sc_logged_is_blocked($ip = '')
+
     {
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
-               
-        $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
-        $minutes_ago = strtotime("-10 minutes");
-        $str_select = "SELECT count(*) FROM sec_logged WHERE sec_logged.sc_session = '_SC_BLOCKED_SC_' AND sec_logged.ip = '".$ip."' AND sec_logged.date_login > '". $minutes_ago ."'";
+               
+
+        $ip = ($ip == '') ? $_SERVER['REMOTE_ADDR'] : $ip;
+
+        $minutes_ago = strtotime("-10 minutes");
+
+        $str_select = "SELECT count(*) FROM sec_logged WHERE sec_logged.sc_session = '_SC_BLOCKED_SC_' AND sec_logged.ip = '".$ip."' AND sec_logged.date_login > '". $minutes_ago ."'";
+
          
       $nm_select = $str_select; 
       $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select; 
@@ -5151,19 +5197,29 @@ $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
           $this->rs_logged = false;
           $this->rs_logged_erro = $this->Db->ErrorMsg();
       } 
-;
-        if($this->rs_logged  !== FALSE && $this->rs_logged[0][0] == 1)
-        {
-            $message = $this->Nm_lang['lang_user_blocked'];
-                $message = sprintf($message, 10);
+;
+
+        if($this->rs_logged  !== FALSE && $this->rs_logged[0][0] == 1)
+
+        {
+
+            $message = $this->Nm_lang['lang_user_blocked'];
+
+                $message = sprintf($message, 10);
+
                 
  if (!isset($this->Campos_Mens_erro)){$this->Campos_Mens_erro = "";}
  if (!empty($this->Campos_Mens_erro)){$this->Campos_Mens_erro .= "<br>";}$this->Campos_Mens_erro .= $message;
-;
-                return true;
-        }
-
-        $str_select = "SELECT count(*) FROM sec_logged WHERE sec_logged.sc_session = '_SC_FAIL_SC_' AND sec_logged.ip = '".$ip."' AND sec_logged.date_login > '". $minutes_ago ."'";
+;
+
+                return true;
+
+        }
+
+
+
+        $str_select = "SELECT count(*) FROM sec_logged WHERE sec_logged.sc_session = '_SC_FAIL_SC_' AND sec_logged.ip = '".$ip."' AND sec_logged.date_login > '". $minutes_ago ."'";
+
          
       $nm_select = $str_select; 
       $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select; 
@@ -5189,11 +5245,16 @@ $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
           $this->rs_logged = false;
           $this->rs_logged_erro = $this->Db->ErrorMsg();
       } 
-;
-
-        if($this->rs_logged  !== FALSE && $this->rs_logged[0][0] == 10)
-        {
-            $str_sql = "INSERT INTO sec_logged(sec_logged.login, sec_logged.date_login, sec_logged.sc_session, sec_logged.ip) VALUES ('blocked', '". microtime(true) ."', '_SC_BLOCKED_SC_', '". $ip ."')";
+;
+
+
+
+        if($this->rs_logged  !== FALSE && $this->rs_logged[0][0] == 10)
+
+        {
+
+            $str_sql = "INSERT INTO sec_logged(sec_logged.login, sec_logged.date_login, sec_logged.sc_session, sec_logged.ip) VALUES ('blocked', '". microtime(true) ."', '_SC_BLOCKED_SC_', '". $ip ."')";
+
             
      $nm_select = $str_sql; 
          $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select;
@@ -5212,29 +5273,40 @@ $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
              exit;
          }
          $rf->Close();
-      ;
-            $message = $this->Nm_lang['lang_user_blocked'];
-                $message = sprintf($message, 10);
+      ;
+
+            $message = $this->Nm_lang['lang_user_blocked'];
+
+                $message = sprintf($message, 10);
+
                 
  if (!isset($this->Campos_Mens_erro)){$this->Campos_Mens_erro = "";}
  if (!empty($this->Campos_Mens_erro)){$this->Campos_Mens_erro .= "<br>";}$this->Campos_Mens_erro .= $message;
-;
-                return true;
-        }
+;
+
+                return true;
+
+        }
+
         return false;
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'off';
 }
-function sc_logged_out($user, $date_login = '')
+function sc_logged_out($user, $date_login = '')
+
 	{
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
 if (!isset($_SESSION['logged_user'])) {$_SESSION['logged_user'] = "";}
 if (!isset($this->sc_temp_logged_user)) {$this->sc_temp_logged_user = (isset($_SESSION['logged_user'])) ? $_SESSION['logged_user'] : "";}
 if (!isset($_SESSION['logged_date_login'])) {$_SESSION['logged_date_login'] = "";}
 if (!isset($this->sc_temp_logged_date_login)) {$this->sc_temp_logged_date_login = (isset($_SESSION['logged_date_login'])) ? $_SESSION['logged_date_login'] : "";}
-               
-		$date_login = ($date_login == '' ? "" : " AND sec_logged.date_login = '". $date_login ."'");
-
-		$str_sql = "SELECT sec_logged.sc_session FROM sec_logged WHERE sec_logged.login = '". $user ."' ". $date_login . " AND sec_logged.sc_session <> '_SC_FAIL_SC_'";
+               
+
+		$date_login = ($date_login == '' ? "" : " AND sec_logged.date_login = '". $date_login ."'");
+
+
+
+		$str_sql = "SELECT sec_logged.sc_session FROM sec_logged WHERE sec_logged.login = '". $user ."' ". $date_login . " AND sec_logged.sc_session <> '_SC_FAIL_SC_'";
+
 		 
       $nm_select = $str_sql; 
       $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select; 
@@ -5260,25 +5332,44 @@ if (!isset($this->sc_temp_logged_date_login)) {$this->sc_temp_logged_date_login 
           $this->data = false;
           $this->data_erro = $this->Db->ErrorMsg();
       } 
-;
-		if(isset($this->data[0][0]) && !empty($this->data[0][0]))
-        {
-			$session_bkp = $_SESSION;
-			$sessionid = session_id();
-			session_write_close();
-
-			session_id($this->data[0][0]);
-			session_start();
-			$_SESSION['logged_user'] = 'logout';
-			session_write_close();
-
-			session_id($sessionid);
-			session_start();
-			$_SESSION = $session_bkp;
-		}
-
-
-		$str_sql = "DELETE FROM sec_logged WHERE sec_logged.login = '". $user . "' " . $date_login;
+;
+
+		if(isset($this->data[0][0]) && !empty($this->data[0][0]))
+
+        {
+
+			$session_bkp = $_SESSION;
+
+			$sessionid = session_id();
+
+			session_write_close();
+
+
+
+			session_id($this->data[0][0]);
+
+			session_start();
+
+			$_SESSION['logged_user'] = 'logout';
+
+			session_write_close();
+
+
+
+			session_id($sessionid);
+
+			session_start();
+
+			$_SESSION = $session_bkp;
+
+		}
+
+
+
+
+
+		$str_sql = "DELETE FROM sec_logged WHERE sec_logged.login = '". $user . "' " . $date_login;
+
 		
      $nm_select = $str_sql; 
          $_SESSION['scriptcase']['sc_sql_ult_comando'] = $nm_select;
@@ -5297,7 +5388,8 @@ if (!isset($this->sc_temp_logged_date_login)) {$this->sc_temp_logged_date_login 
              exit;
          }
          $rf->Close();
-      ;
+      ;
+
 		 unset($_SESSION['logged_date_login']);
  unset($this->sc_temp_logged_date_login);
  unset($_SESSION['logged_user']);
@@ -5307,7 +5399,8 @@ if (isset($this->sc_temp_logged_date_login)) {$_SESSION['logged_date_login'] = $
 if (isset($this->sc_temp_logged_user)) {$_SESSION['logged_user'] = $this->sc_temp_logged_user;}
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'off';
 }
-function sc_looged_check_logout()
+function sc_looged_check_logout()
+
     {
 $_SESSION['scriptcase']['app_menu']['contr_erro'] = 'on';
 if (!isset($_SESSION['usr_email'])) {$_SESSION['usr_email'] = "";}
@@ -5318,9 +5411,12 @@ if (!isset($_SESSION['logged_user'])) {$_SESSION['logged_user'] = "";}
 if (!isset($this->sc_temp_logged_user)) {$this->sc_temp_logged_user = (isset($_SESSION['logged_user'])) ? $_SESSION['logged_user'] : "";}
 if (!isset($_SESSION['usr_login'])) {$_SESSION['usr_login'] = "";}
 if (!isset($this->sc_temp_usr_login)) {$this->sc_temp_usr_login = (isset($_SESSION['usr_login'])) ? $_SESSION['usr_login'] : "";}
-               
-        if(isset($this->sc_temp_logged_user) && ($this->sc_temp_logged_user == 'logout' || empty($this->sc_temp_logged_user)))
-        {
+               
+
+        if(isset($this->sc_temp_logged_user) && ($this->sc_temp_logged_user == 'logout' || empty($this->sc_temp_logged_user)))
+
+        {
+
              unset($_SESSION['usr_login']);
  unset($this->sc_temp_usr_login);
  unset($_SESSION['logged_user']);
@@ -5329,7 +5425,8 @@ if (!isset($this->sc_temp_usr_login)) {$this->sc_temp_usr_login = (isset($_SESSI
  unset($this->sc_temp_logged_date_login);
  unset($_SESSION['usr_email']);
  unset($this->sc_temp_usr_email);
-;
+;
+
         }
 if (isset($this->sc_temp_usr_login)) {$_SESSION['usr_login'] = $this->sc_temp_usr_login;}
 if (isset($this->sc_temp_logged_user)) {$_SESSION['logged_user'] = $this->sc_temp_logged_user;}
