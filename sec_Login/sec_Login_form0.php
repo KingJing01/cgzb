@@ -318,7 +318,7 @@ if (!$this->NM_ajax_flag && isset($this->NM_non_ajax_info['ajaxJavascript']) && 
  }
 
  var show_block = {
-  
+
  };
 
  function toggleBlock(e) {
@@ -400,13 +400,13 @@ function NM_tp_critica(TP)
         nmdg_tipo_crit = TP;
     }
 }
-</script> 
-<script type="text/javascript" src="<?php echo $this->Ini->url_lib_js ?>digita.js"> 
-</script> 
+</script>
+<script type="text/javascript" src="<?php echo $this->Ini->url_lib_js ?>digita.js">
+</script>
 <?php
  include_once("sec_Login_js0.php");
 ?>
-<script type="text/javascript"> 
+<script type="text/javascript">
  function setLocale(oSel)
  {
   var sLocale = "";
@@ -426,9 +426,9 @@ function NM_tp_critica(TP)
   document.F1.nmgp_schema_f.value = sLocale;
  }
  </script>
-<form name="F1" method="post" 
-               action="./" 
-               target="_self"> 
+<form name="F1" method="post"
+               action="./"
+               target="_self">
 <input type="hidden" name="nm_form_submit" value="1">
 <input type="hidden" name="nmgp_idioma_novo" value="">
 <input type="hidden" name="nmgp_schema_f" value="">
@@ -438,10 +438,10 @@ function NM_tp_critica(TP)
 <input type="hidden" name="nmgp_ancora" value="">
 <input type="hidden" name="nmgp_num_form" value="<?php  echo $this->form_encode_input($nmgp_num_form); ?>">
 <input type="hidden" name="nmgp_parms" value="">
-<input type="hidden" name="script_case_init" value="<?php  echo $this->form_encode_input($this->Ini->sc_page); ?>"> 
-<input type="hidden" name="script_case_session" value="<?php  echo $this->form_encode_input(session_id()); ?>"> 
-<input type="hidden" name="NM_cancel_return_new" value="<?php echo $this->NM_cancel_return_new ?>"> 
-<input type="hidden" name="csrf_token" value="<?php echo $this->scCsrfGetToken() ?>" /> 
+<input type="hidden" name="script_case_init" value="<?php  echo $this->form_encode_input($this->Ini->sc_page); ?>">
+<input type="hidden" name="script_case_session" value="<?php  echo $this->form_encode_input(session_id()); ?>">
+<input type="hidden" name="NM_cancel_return_new" value="<?php echo $this->NM_cancel_return_new ?>">
+<input type="hidden" name="csrf_token" value="<?php echo $this->scCsrfGetToken() ?>" />
 <input type="hidden" name="_sc_force_mobile" id="sc-id-mobile-control" value="" />
 <?php
 $_SESSION['scriptcase']['error_span_title']['sec_Login'] = $this->Ini->Error_icon_span;
@@ -513,7 +513,7 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 </td></tr>
 <?php
   }
-?>
+?><!--captcha  start -->
 <tr><td>
 <?php
        echo "<div id=\"sc-ui-empty-form\" class=\"scFormPageText\" style=\"padding: 10px; text-align: center; font-weight: bold" . ($this->nmgp_form_empty ? '' : '; display: none') . "\">";
@@ -535,7 +535,7 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <div id="div_hidden_bloco_0"><!-- bloco_c -->
 <?php
 ?>
-<TABLE align="center" id="hidden_bloco_0" class="scFormTable" width="100%" style="height: 100%;"><?php if ($sc_hidden_no > 0) { echo "<tr>"; }; 
+<TABLE align="center" id="hidden_bloco_0" class="scFormTable" width="100%" style="height: 100%;"><?php if ($sc_hidden_no > 0) { echo "<tr>"; };
       $sc_hidden_yes = 0; $sc_hidden_no = 0; ?>
 
 
@@ -570,7 +570,7 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <input type="hidden" name="login" value="<?php echo $this->form_encode_input($login) . "\">"; ?>
 <?php } else { $sc_hidden_no++; ?>
 
-    <TD class="scFormLabelOdd scUiLabelWidthFix css_login_label" id="hidden_field_label_login" style="<?php echo $sStyleHidden_login; ?>"><span id="id_label_login"><?php echo $this->nm_new_label['login']; ?></span><?php if (!isset($_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['php_cmp_required']['login']) || $_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['php_cmp_required']['login'] == "on") { ?> <span class="scFormRequiredOdd">*</span> <?php }?></TD>
+    <TD class="scFormLabelOdd scUiLabelWidthFix css_login_label" id="hidden_field_label_login" style="width:50px"><span id="id_label_login"><?php echo $this->nm_new_label['login']; ?></span><?php if (!isset($_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['php_cmp_required']['login']) || $_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['php_cmp_required']['login'] == "on") { ?> <span class="scFormRequiredOdd">*</span> <?php }?></TD>
     <TD class="scFormDataOdd css_login_line" id="hidden_field_data_login" style="<?php echo $sStyleHidden_login; ?>">
 <?php if ($bTestReadOnly && $this->nmgp_opcao != "novo" && isset($this->nmgp_cmp_readonly["login"]) &&  $this->nmgp_cmp_readonly["login"] == "on") { 
 
@@ -589,9 +589,9 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 
     <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 2; ?>" >&nbsp;</TD>
 
-<?php } 
-?> 
-<?php if ($sc_hidden_no > 0) { echo "<tr>"; }; 
+<?php }
+?>
+<?php if ($sc_hidden_no > 0) { echo "<tr>"; };
       $sc_hidden_yes = 0; $sc_hidden_no = 0; ?>
 
 
@@ -625,7 +625,6 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
 <?php if (isset($this->nmgp_cmp_hidden['pswd']) && $this->nmgp_cmp_hidden['pswd'] == 'off') { $sc_hidden_yes++;  ?>
 <input type="hidden" name="pswd" value="<?php echo $this->form_encode_input($pswd) . "\">"; ?>
 <?php } else { $sc_hidden_no++; ?>
-
     <TD class="scFormLabelOdd scUiLabelWidthFix css_pswd_label" id="hidden_field_label_pswd" style="<?php echo $sStyleHidden_pswd; ?>"><span id="id_label_pswd"><?php echo $this->nm_new_label['pswd']; ?></span><?php if (!isset($_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['php_cmp_required']['pswd']) || $_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['php_cmp_required']['pswd'] == "on") { ?> <span class="scFormRequiredOdd">*</span> <?php }?></TD>
     <TD class="scFormDataOdd css_pswd_line" id="hidden_field_data_pswd" style="<?php echo $sStyleHidden_pswd; ?>">
 <?php if ($bTestReadOnly && $this->nmgp_opcao != "novo" && isset($this->nmgp_cmp_readonly["pswd"]) &&  $this->nmgp_cmp_readonly["pswd"] == "on") { ?>
@@ -635,76 +634,19 @@ var scMsgDefScInit = "<?php echo $this->Ini->page; ?>";
  size=10 maxlength=32 alt="{datatype: 'text', maxLength: 32, allowedChars: '<?php echo $this->allowedCharsCharset("") ?>', lettersCase: '', enterTab: false, enterSubmit: false, autoTab: false, selectOnFocus: true, watermark: '', watermarkClass: 'scFormObjectOddWm', maskChars: '(){}[].,;:-+/ '}"></span><?php } ?>
 </TD>
    <?php }?>
-
-
 <?php if ($sc_hidden_yes > 0 && $sc_hidden_no > 0) { ?>
-
-
     <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 2; ?>" >&nbsp;</TD>
-
-<?php } 
-?> 
-
-
+<?php }
+?>
    </tr>
 <?php $sc_hidden_no = 1; ?>
-</TABLE></div><!-- bloco_f -->
+</TABLE></div>
    </td>
    </tr></table>
    <a name="bloco_1"></a>
    <table width="100%" height="100%" cellpadding="0" cellspacing=0><tr valign="top"><td width="100%" height="">
-<div id="div_hidden_bloco_1"><!-- bloco_c -->
-<TABLE align="center" id="hidden_bloco_1" class="scFormTable" width="100%" style="height: 100%;"><?php if ($sc_hidden_no > 0) { echo "<tr>"; }; 
-      $sc_hidden_yes = 0; $sc_hidden_no = 0; ?>
-
-
-   <?php
-    if (!isset($this->nm_new_label['links']))
-    {
-        $this->nm_new_label['links'] = "Links";
-    }
-?>
-<?php if (isset($this->nmgp_cmp_hidden['links']) && $this->nmgp_cmp_hidden['links'] == 'off') { $sc_hidden_yes++; ?>
-<input type="hidden" name="links" value="<?php echo $this->form_encode_input($this->links) . "\">"; ?>
-<?php } else { $sc_hidden_no++; ?>
-
-    <TD class="scFormDataOdd css_links_line" id="hidden_field_data_links" style="<?php echo $sStyleHidden_links; ?>"> 
-<?php if ($bTestReadOnly && $this->nmgp_opcao != "novo" && isset($this->nmgp_cmp_readonly["links"]) &&  $this->nmgp_cmp_readonly["links"] == "on") { 
-
- ?>
-<input type="hidden" name="links" value="<?php echo $this->form_encode_input($links) . "\">" . $links . ""; ?>
-<?php } else { ?>
-
-<input type="hidden" name="links" value = "">
-
- <a href="javascript:nm_menu_link_links('app_form_add_users')" class="scFormLinkOdd"><?php echo $this->Ini->Nm_lang['lang_new_company'] ?></a>
-<br>
-
- <a href="javascript:nm_menu_link_links('sec_retrieve_pswd')" class="scFormLinkOdd"><?php echo $this->Ini->Nm_lang['lang_subject_mail'] ?></a>
-<br>
-<?php  } ?>
- </TD>
-   <?php }?>
-
-
-
-
-
-
-<?php if ($sc_hidden_yes > 0) { ?>
-
-
-    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
-
-
-
-
-
-<?php } ?>
-   </td></tr></table>
-   </tr>
-</TABLE></div><!-- bloco_f -->
-</td></tr>
+    </td></tr>
+       <tr><td class="scFormLabelOdd"><span>验证码</span><span style="color:red">*</span><input style="margin-left: 20px;width: 100px;" type="text" name="captcha_code" maxlength="4" size="4" class="scFormObjectOdd" /><span class="scFormRequiredOddColor">* <?php echo $this->Ini->Nm_lang['lang_othr_reqr']; ?></span></td></tr>
 <tr><td class="scFormPageText">
 <script type="text/javascript">
 function captchaReloadImage() {
@@ -717,50 +659,81 @@ function captchaReloadImage() {
  document.getElementById("id_captcha_img").src = "sec_Login_captcha_show.php?sid=" + sRand;
 }
 </script>
+ <!--  验证码模块 html代码块  -->
 <table style="border-collapse: collapse; border-width: 0px">
  <tr>
-  <td><table style="border-collapse: collapse; border-width: 0px"><tr><td> <?php
+  <td style="width:50%"><table style="border-collapse: collapse; border-width: 0px"><tr><td> <?php
  if ($this->Ini->Gd_missing) {
      echo "<span class=\"scFormErrorMessage\">" . $this->Ini->Nm_lang['lang_errm_gd'] . "</span>";
  }
  ?>
-<img id="id_captcha_img" src="sec_Login_captcha_show.php?sid=<?php echo md5(uniqid(time())); ?>" /></td><td><?php echo nmButtonOutput($this->arr_buttons, "bcaptchareload", "captchaReloadImage()", "captchaReloadImage()", "id_captcha_reload", "", "", "", "", "", "", $this->Ini->path_botoes, "", "", "", "", "");?>
+<img id="id_captcha_img" src="sec_Login_captcha_show.php?sid=<?php echo md5(uniqid(time())); ?>" width="80%"/></td>
+ <td style="width: 35%;"><?php echo nmButtonOutput($this->arr_buttons, "bcaptchareload", "captchaReloadImage()", "captchaReloadImage()", "id_captcha_reload", "", "", "", "", "", "", $this->Ini->path_botoes, "", "", "", "", "");?>
 </td></tr></table></td>
-  <td><input type="text" name="captcha_code" maxlength="4" size="4" class="scFormObjectOdd" /></td>
-  <td><span class="scFormPageText"><?php echo $this->Ini->Nm_lang['lang_othr_cptc_lbel']; ?></span></td>
+  <!--<td><span class="scFormPageText"><?php /*echo $this->Ini->Nm_lang['lang_othr_cptc_lbel']; */?></span></td>-->
  </tr>
 </table>
-
 <?php
   }
 ?>
 </td></tr>
-<tr><td class="scFormPageText">
-<span class="scFormRequiredOddColor">* <?php echo $this->Ini->Nm_lang['lang_othr_reqr']; ?></span>
-</td></tr> 
+       <!--captcha  end -->
+       <!-- a href  action  start -->
+    <tr><td><div id="div_hidden_bloco_1"><!-- bloco_c -->
+            <TABLE align="center" id="hidden_bloco_1" class="scFormTable" width="100%" style="height: 100%;"><?php if ($sc_hidden_no > 0) { echo "<tr>"; };
+                $sc_hidden_yes = 0; $sc_hidden_no = 0; ?>
+                <?php
+                if (!isset($this->nm_new_label['links']))
+                {
+                    $this->nm_new_label['links'] = "Links";
+                }
+                ?>
+                <?php if (isset($this->nmgp_cmp_hidden['links']) && $this->nmgp_cmp_hidden['links'] == 'off') { $sc_hidden_yes++; ?>
+<input type="hidden" name="links" value="<?php echo $this->form_encode_input($this->links) . "\">"; ?>
+<?php } else { $sc_hidden_no++; ?>
+    <TD class="scFormDataOdd css_links_line" id="hidden_field_data_links" style="<?php echo $sStyleHidden_links; ?>">
+<?php if ($bTestReadOnly && $this->nmgp_opcao != "novo" && isset($this->nmgp_cmp_readonly["links"]) &&  $this->nmgp_cmp_readonly["links"] == "on") {
+
+ ?>
+<input type="hidden" name="links" value="<?php echo $this->form_encode_input($links) . "\">" . $links . ""; ?>
+<?php } else { ?>
+<input type="hidden" name="links" value = "">
+ <a href="javascript:nm_menu_link_links('app_form_add_users')" class="scFormLinkOdd"><?php echo $this->Ini->Nm_lang['lang_new_company'] ?></a>
+ <a href="javascript:nm_menu_link_links('sec_retrieve_pswd')" class="scFormLinkOdd"><?php echo $this->Ini->Nm_lang['lang_subject_mail'] ?></a>
+<br>
+<?php  } ?>
+ </TD>
+   <?php }?>
+                <?php if ($sc_hidden_yes > 0) { ?>
+                    <TD class="scFormDataOdd" colspan="<?php echo $sc_hidden_yes * 1; ?>" >&nbsp;</TD>
+                <?php } ?>
+                </td></tr></table>
+    </tr>
+   </TABLE>
+  </div><!-- bloco_f -->
+ </td></tr>
+  <!-- a href  action  end -->
 <tr><td>
-    <table style="border-collapse: collapse; border-width: 0px; width: 100%"><tr><td class="scFormToolbar" style="padding: 0px; spacing: 0px">
+    <table style="border-collapse: collapse; border-width: 0px; width: 100%"><tr><!--<td class="scFormToolbar" style="padding: 0px; spacing: 0px">
     <table style="border-collapse: collapse; border-width: 0px; width: 100%">
     <tr> 
-     <td nowrap align="left" valign="middle" width="33%" class="scFormToolbarPadding"> 
-<?php
-    $NM_btn = false;
-?>
+     <td nowrap align="left" valign="middle" width="33%" class="scFormToolbarPadding">
      </td> 
      <td nowrap align="center" valign="middle" width="33%" class="scFormToolbarPadding"> 
-     </td> 
-     <td nowrap align="right" valign="middle" width="33%" class="scFormToolbarPadding"> 
+     </td> -->
+     <td nowrap align="center" valign="middle" width="33%" class="scFormToolbarPadding">
 <?php
+$NM_btn = false;
         $sCondStyle = ($this->nmgp_botoes['ok'] == "on") ? '' : 'display: none;';
 ?>
        <?php echo nmButtonOutput($this->arr_buttons, "bok", "nm_atualiza('alterar');", "nm_atualiza('alterar');", "sub_form_b", "", "登录", "" . $sCondStyle . "", "", "", "", $this->Ini->path_botoes, "", "", "", "", "");?>
- 
+
 <?php
         $NM_btn = true;
 ?>
-          </td></tr> 
-   </table> 
-   </td></tr></table> 
+          </td></tr>
+   </table>
+  <!-- </td></tr></table> -->
 <?php
 if (!$NM_btn && isset($NM_ult_sep))
 {
@@ -770,12 +743,12 @@ if (!$NM_btn && isset($NM_ult_sep))
 }
 unset($NM_ult_sep);
 ?>
-</td></tr> 
-</table> 
-</div> 
-</td> 
-</tr> 
-</table> 
+</td></tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
 
 <div id="id_debug_window" style="display: none; position: absolute; left: 50px; top: 50px"><table class="scFormMessageTable">
 <tr><td class="scFormMessageTitle"><?php echo nmButtonOutput($this->arr_buttons, "berrm_clse", "scAjaxHideDebug()", "scAjaxHideDebug()", "", "", "", "", "", "", "", $this->Ini->path_botoes, "", "", "", "", "");?>
@@ -783,8 +756,8 @@ unset($NM_ult_sep);
 <tr><td class="scFormMessageMessage" style="padding: 0px; vertical-align: top"><div style="padding: 2px; height: 200px; width: 350px; overflow: auto" id="id_debug_text"></div></td></tr>
 </table></div>
 
-</form> 
-<script> 
+</form>
+<script>
 <?php
   $nm_sc_blocos_da_pag = array(0,1);
 
@@ -800,7 +773,7 @@ unset($NM_ult_sep);
       }
   }
 ?>
-</script> 
+</script>
 <script>
 <?php
 if (isset($_SESSION['sc_session'][$this->Ini->sc_page]['sec_Login']['masterValue']))
@@ -933,5 +906,5 @@ function scMobileDisplayControl(sOption) {
 <?php
        }
 ?>
-</body> 
+</body>
 </html> 
